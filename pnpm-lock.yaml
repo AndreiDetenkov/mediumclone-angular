@@ -52,6 +52,9 @@ devDependencies:
   '@angular/compiler-cli':
     specifier: ^16.1.8
     version: 16.1.8(@angular/compiler@16.1.8)(typescript@4.9.5)
+  '@ngrx/store-devtools':
+    specifier: ^16.2.0
+    version: 16.2.0(@ngrx/store@16.2.0)(rxjs@7.8.1)
   '@types/jasmine':
     specifier: ~4.3.0
     version: 4.3.5
@@ -1959,6 +1962,17 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: true
 
+  /@ngrx/store-devtools@16.2.0(@ngrx/store@16.2.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-m7mkNpIIp8fA8yNG5T0ZKm1RCP2fE0IVBEtcbj2Z/88fW4vyvobVBdBqha6zgYTuA5X4m28npMra9GPNPsuDLA==}
+    peerDependencies:
+      '@ngrx/store': 16.2.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@ngrx/store': 16.2.0(@angular/core@16.1.8)(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.1
+    dev: true
+
   /@ngrx/store@16.2.0(@angular/core@16.1.8)(rxjs@7.8.1):
     resolution: {integrity: sha512-C7oIUC87xXV+1dTGUwYG/L4p0IZdYv/Ou1nTL/LffyAHllmmygTA5gzLB87abLOhucAxlFIQMQ8t/GSxdk/+QA==}
     peerDependencies:
@@ -1968,7 +1982,6 @@ packages:
       '@angular/core': 16.1.8(rxjs@7.8.1)(zone.js@0.13.1)
       rxjs: 7.8.1
       tslib: 2.6.1
-    dev: false
 
   /@ngtools/webpack@16.1.8(@angular/compiler-cli@16.1.8)(typescript@4.9.5)(webpack@5.86.0):
     resolution: {integrity: sha512-co2SC1a822655Ek2f6fkMFsswHeCm2obNceb0kftLSpqomCgPAC3T447pB3TE1Iw+BEMFdjrAgIrp3nyYWwHsQ==}
