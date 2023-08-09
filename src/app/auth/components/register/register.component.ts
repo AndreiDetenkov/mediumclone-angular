@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { RouterModule } from '@angular/router'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store'
 
@@ -9,7 +10,7 @@ import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.int
   selector: 'mc-register',
   templateUrl: './register.component.html',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
 })
 export class RegisterComponent {
   form = this.fb.nonNullable.group({
