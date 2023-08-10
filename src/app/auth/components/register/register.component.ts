@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { Store } from '@ngrx/store'
 
-import { register } from 'src/app/auth/store/actions'
+import { authActions } from 'src/app/auth/store/actions'
 import { authFeature } from 'src/app/auth/store/reducers'
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
 
@@ -31,6 +31,6 @@ export class RegisterComponent {
     const request: RegisterRequestInterface = {
       user: this.form.getRawValue(),
     }
-    this.store.dispatch(register({ request }))
+    this.store.dispatch(authActions.register({ request }))
   }
 }

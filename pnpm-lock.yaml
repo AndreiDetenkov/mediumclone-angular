@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^16.1.8
     version: 16.1.8(@angular/common@16.1.8)(@angular/core@16.1.8)(@angular/platform-browser@16.1.8)(rxjs@7.8.1)
+  '@ngrx/effects':
+    specifier: 16.2.0
+    version: 16.2.0(@angular/core@16.1.8)(@ngrx/store@16.2.0)(rxjs@7.8.1)
   '@ngrx/store':
     specifier: ^16.2.0
     version: 16.2.0(@angular/core@16.1.8)(rxjs@7.8.1)
@@ -1961,6 +1964,19 @@ packages:
   /@leichtgewicht/ip-codec@2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: true
+
+  /@ngrx/effects@16.2.0(@angular/core@16.1.8)(@ngrx/store@16.2.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-zZfq47LNoiRK+uS66Xm36mN07zm11AER1D9lTalX/G6jrV0bywgnAaukNNav9E33ZRrPEnCD8uu9BXZoboEYgA==}
+    peerDependencies:
+      '@angular/core': ^16.0.0
+      '@ngrx/store': 16.2.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/core': 16.1.8(rxjs@7.8.1)(zone.js@0.13.1)
+      '@ngrx/store': 16.2.0(@angular/core@16.1.8)(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.1
+    dev: false
 
   /@ngrx/store-devtools@16.2.0(@ngrx/store@16.2.0)(rxjs@7.8.1):
     resolution: {integrity: sha512-m7mkNpIIp8fA8yNG5T0ZKm1RCP2fE0IVBEtcbj2Z/88fW4vyvobVBdBqha6zgYTuA5X4m28npMra9GPNPsuDLA==}

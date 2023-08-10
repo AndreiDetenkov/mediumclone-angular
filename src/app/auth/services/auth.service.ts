@@ -5,7 +5,7 @@ import { map, Observable } from 'rxjs'
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
 import { AuthResponseInterface } from 'src/app/auth/types/authResponse.interface'
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment.development'
 
 @Injectable({
   providedIn: 'root',
