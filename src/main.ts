@@ -9,7 +9,7 @@ import { provideEffects } from '@ngrx/effects'
 import { AppComponent } from 'src/app/app.component'
 import { appRoutes } from 'src/app/app.routes'
 import { authFeature } from 'src/app/auth/store/reducers'
-import * as registerEffects from 'src/app/auth/store/effects'
+import * as authEffects from 'src/app/auth/store/effects'
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -17,7 +17,7 @@ bootstrapApplication(AppComponent, {
     provideRouter(appRoutes),
     provideStore(),
     provideState(authFeature),
-    provideEffects(registerEffects),
+    provideEffects(authEffects),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
