@@ -32,6 +32,9 @@ dependencies:
   '@ngrx/effects':
     specifier: 16.2.0
     version: 16.2.0(@angular/core@16.1.8)(@ngrx/store@16.2.0)(rxjs@7.8.1)
+  '@ngrx/router-store':
+    specifier: ^16.3.0
+    version: 16.3.0(@angular/common@16.1.8)(@angular/core@16.1.8)(@angular/router@16.1.8)(@ngrx/store@16.2.0)(rxjs@7.8.1)
   '@ngrx/store':
     specifier: ^16.2.0
     version: 16.2.0(@angular/core@16.1.8)(rxjs@7.8.1)
@@ -1978,6 +1981,23 @@ packages:
       tslib: 2.6.1
     dev: false
 
+  /@ngrx/router-store@16.3.0(@angular/common@16.1.8)(@angular/core@16.1.8)(@angular/router@16.1.8)(@ngrx/store@16.2.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-IrAx+9OkGMh9uEmhLrDke0adfXAIHHX6qYwUk02QUNND5dmvd1zg5YtB87XTxa2rWOpt9c9iyFHzemzSoa40uQ==}
+    peerDependencies:
+      '@angular/common': ^16.0.0
+      '@angular/core': ^16.0.0
+      '@angular/router': ^16.0.0
+      '@ngrx/store': 16.3.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/common': 16.1.8(@angular/core@16.1.8)(rxjs@7.8.1)
+      '@angular/core': 16.1.8(rxjs@7.8.1)(zone.js@0.13.1)
+      '@angular/router': 16.1.8(@angular/common@16.1.8)(@angular/core@16.1.8)(@angular/platform-browser@16.1.8)(rxjs@7.8.1)
+      '@ngrx/store': 16.2.0(@angular/core@16.1.8)(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.1
+    dev: false
+
   /@ngrx/store-devtools@16.2.0(@ngrx/store@16.2.0)(rxjs@7.8.1):
     resolution: {integrity: sha512-m7mkNpIIp8fA8yNG5T0ZKm1RCP2fE0IVBEtcbj2Z/88fW4vyvobVBdBqha6zgYTuA5X4m28npMra9GPNPsuDLA==}
     peerDependencies:
@@ -3225,6 +3245,7 @@ packages:
 
   /debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    requiresBuild: true
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
@@ -4991,6 +5012,7 @@ packages:
 
   /node-addon-api@3.2.1:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5002,6 +5024,7 @@ packages:
   /node-gyp-build@4.6.0:
     resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5376,6 +5399,7 @@ packages:
   /pify@4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5520,6 +5544,7 @@ packages:
 
   /prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5829,6 +5854,7 @@ packages:
 
   /sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5865,6 +5891,7 @@ packages:
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 

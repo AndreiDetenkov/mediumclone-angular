@@ -5,6 +5,7 @@ import { isDevMode } from '@angular/core'
 import { provideHttpClient } from '@angular/common/http'
 import { provideStoreDevtools } from '@ngrx/store-devtools'
 import { provideEffects } from '@ngrx/effects'
+import { provideRouterStore, routerReducer } from '@ngrx/router-store'
 
 import { AppComponent } from 'src/app/app.component'
 import { appRoutes } from 'src/app/app.routes'
@@ -15,7 +16,8 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     provideRouter(appRoutes),
-    provideStore(),
+    provideStore({ router: routerReducer }),
+    provideRouterStore(),
     provideState(authFeature),
     provideEffects(authEffects),
     provideStoreDevtools({
