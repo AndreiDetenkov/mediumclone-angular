@@ -9,11 +9,34 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { PersistenceService } from '../../shared/services/persistence.service'
 import { Router } from '@angular/router'
 
+export const getCurrentUserEffect = createEffect(
+  (
+    $actions = inject(Actions),
+    authService = inject(AuthService),
+    persistenceService = inject(PersistenceService)
+  ) => {
+    return $actions.pipe(
+      ofType(authActions.getCurrentUser),
+      switchMap(() => {
+        return authService.getCurrentUser().pipe(
+          map((currentUser: CurrentUserInterface) => {
+            return authActions.getCurrentUserSuccess({ currentUser })
+          }),
+          catchError(() => {
+            return of(authActions.getCurrentUserFailure())
+          })
+        )
+      })
+    )
+  },
+  { functional: true }
+)
+
 export const registerEffect = createEffect(
   (
     $actions = inject(Actions),
     authService = inject(AuthService),
-    persistenceService = inject(PersistenceService),
+    persistenceService = inject(PersistenceService)
   ) => {
     return $actions.pipe(
       ofType(authActions.register),
@@ -27,14 +50,14 @@ export const registerEffect = createEffect(
             return of(
               authActions.registerFailure({
                 errors: errorResponse.error.errors,
-              }),
+              })
             )
-          }),
+          })
         )
-      }),
+      })
     )
   },
-  { functional: true },
+  { functional: true }
 )
 
 export const redirectAfterRegisterEffect = createEffect(
@@ -43,20 +66,20 @@ export const redirectAfterRegisterEffect = createEffect(
       ofType(authActions.registerSuccess),
       tap(() => {
         router.navigateByUrl('/')
-      }),
+      })
     )
   },
   {
     functional: true,
     dispatch: false,
-  },
+  }
 )
 
 export const loginEffect = createEffect(
   (
     $actions = inject(Actions),
     authService = inject(AuthService),
-    persistenceService = inject(PersistenceService),
+    persistenceService = inject(PersistenceService)
   ) => {
     return $actions.pipe(
       ofType(authActions.login),
@@ -70,14 +93,14 @@ export const loginEffect = createEffect(
             return of(
               authActions.loginFailure({
                 errors: errorResponse.error.errors,
-              }),
+              })
             )
-          }),
+          })
         )
-      }),
+      })
     )
   },
-  { functional: true },
+  { functional: true }
 )
 
 export const redirectAfterLoginEffect = createEffect(
@@ -86,11 +109,11 @@ export const redirectAfterLoginEffect = createEffect(
       ofType(authActions.loginSuccess),
       tap(() => {
         router.navigateByUrl('/')
-      }),
+      })
     )
   },
   {
     functional: true,
     dispatch: false,
-  },
+  }
 )
