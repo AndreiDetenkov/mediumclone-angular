@@ -2,13 +2,15 @@ import { combineLatest } from 'rxjs'
 import { Store } from '@ngrx/store'
 import { Component, Input, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { RouterLink } from '@angular/router'
+import { ActivatedRoute, Router, RouterLink } from '@angular/router'
 
 import { feedActions } from './store/actions'
 import { feedFeature } from './store/reducers'
 
 import { ErrorMessageComponent } from '../error-message/error-message.component'
 import { LoadingComponent } from '../loading/loading.component'
+import { environment } from '../../../../environments/environment'
+import { FeedParamsInterface } from './types/feed-params.interface'
 
 @Component({
   selector: 'mc-feed',
@@ -19,7 +21,15 @@ import { LoadingComponent } from '../loading/loading.component'
 export class FeedComponent implements OnInit {
   @Input() apiUrl: string = ''
 
-  constructor(private store: Store) {}
+  limit = environment.limit
+  baseUrl = this.router.url.split('?')[0]
+  currentPage: number = 0
+
+  constructor(
+    private store: Store,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   data$ = combineLatest({
     isLoading: this.store.select(feedFeature.selectIsLoading),
@@ -29,5 +39,9 @@ export class FeedComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(feedActions.getFeed({ url: this.apiUrl }))
+
+    this.route.queryParams.subscribe(
+      (params: FeedParamsInterface) => (this.currentPage = Number(params['page'] || '1'))
+    )
   }
 }
