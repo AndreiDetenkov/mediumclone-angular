@@ -11,12 +11,13 @@ import { ErrorMessageComponent } from '../error-message/error-message.component'
 import { LoadingComponent } from '../loading/loading.component'
 import { environment } from '../../../../environments/environment'
 import { FeedParamsInterface } from './types/feed-params.interface'
+import { PaginationComponent } from '../pagination/pagination.component'
 
 @Component({
   selector: 'mc-feed',
   templateUrl: './feed.component.html',
   standalone: true,
-  imports: [CommonModule, RouterLink, ErrorMessageComponent, LoadingComponent],
+  imports: [CommonModule, RouterLink, ErrorMessageComponent, LoadingComponent, PaginationComponent],
 })
 export class FeedComponent implements OnInit {
   @Input() apiUrl: string = ''
