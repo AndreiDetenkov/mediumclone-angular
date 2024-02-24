@@ -12,6 +12,7 @@ import { LoadingComponent } from '../loading/loading.component'
 import { PaginationComponent } from '../pagination/pagination.component'
 import { FeedParamsInterface } from './types/feed-params.interface'
 import { environment } from '../../../../environments/environment'
+import queryString from 'query-string'
 
 @Component({
   selector: 'mc-feed',
@@ -39,10 +40,21 @@ export class FeedComponent implements OnInit {
   })
 
   ngOnInit() {
-    this.store.dispatch(feedActions.getFeed({ url: this.apiUrl }))
+    this.route.queryParams.subscribe((params: FeedParamsInterface) => {
+      this.currentPage = Number(params['page'] || '1')
+      this.fetchFeed()
+    })
+  }
 
-    this.route.queryParams.subscribe(
-      (params: FeedParamsInterface) => (this.currentPage = Number(params['page'] || '1'))
-    )
+  fetchFeed(): void {
+    const offset = this.currentPage * this.limit - this.limit
+    const parsedUrl = queryString.parseUrl(this.apiUrl)
+    const stringifiedParams = queryString.stringify({
+      limit: this.limit,
+      offset,
+      ...parsedUrl.query,
+    })
+    const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
+    this.store.dispatch(feedActions.getFeed({ url: apiUrlWithParams }))
   }
 }
