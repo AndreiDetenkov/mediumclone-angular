@@ -1,6 +1,6 @@
 import { combineLatest } from 'rxjs'
 import { Store } from '@ngrx/store'
-import { Component, Input, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ActivatedRoute, Router, RouterLink } from '@angular/router'
 
@@ -13,12 +13,21 @@ import { PaginationComponent } from '../pagination/pagination.component'
 import { FeedParamsInterface } from './types/feed-params.interface'
 import { environment } from '../../../../environments/environment'
 import queryString from 'query-string'
+import { TagListComponent } from '../tagList/tagList.component'
 
 @Component({
   selector: 'mc-feed',
   templateUrl: './feed.component.html',
   standalone: true,
-  imports: [CommonModule, RouterLink, ErrorMessageComponent, LoadingComponent, PaginationComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    RouterLink,
+    ErrorMessageComponent,
+    LoadingComponent,
+    PaginationComponent,
+    TagListComponent,
+  ],
 })
 export class FeedComponent implements OnInit {
   @Input() apiUrl: string = ''
