@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { UtilsService } from '../../services/utils.service'
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterLink } from '@angular/router'
+import { UtilsService } from '../../services/utils.service'
 
 @Component({
   selector: 'mc-pagination',
   templateUrl: './pagination.component.html',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink],
 })
 export class PaginationComponent implements OnInit {

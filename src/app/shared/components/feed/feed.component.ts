@@ -9,9 +9,9 @@ import { feedFeature } from './store/reducers'
 
 import { ErrorMessageComponent } from '../error-message/error-message.component'
 import { LoadingComponent } from '../loading/loading.component'
-import { environment } from '../../../../environments/environment'
-import { FeedParamsInterface } from './types/feed-params.interface'
 import { PaginationComponent } from '../pagination/pagination.component'
+import { FeedParamsInterface } from './types/feed-params.interface'
+import { environment } from '../../../../environments/environment'
 
 @Component({
   selector: 'mc-feed',
